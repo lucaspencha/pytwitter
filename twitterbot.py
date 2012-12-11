@@ -24,14 +24,14 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 me = api.me().screen_name
 
-
+#Insert @%s when you want to insert a specific username
 
 TEMPLATES = [
 	'message 1',
 	'message 2',
-  'message 3',
-  'message 4',
-  'message 5'
+  	'message 3',
+ 	'message 4',
+  	'message 5'
 ]
 
 class StdOutListener(StreamListener):
