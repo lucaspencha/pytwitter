@@ -26,13 +26,13 @@ import time
 
 # The consumer keys can be found on your application's Details
 # page located at https://dev.twitter.com/apps (under "OAuth settings")
-consumer_key="*****"
-consumer_secret="*****"
+consumer_key="X0lyicNXMAqeW6vP2HFlplDIM"
+consumer_secret="Ppzg8OWPbPUCuwuznhvbyd6I1OtAbvlv8eiilWA9W5U9jKeAFo"
 # The access tokens can be found on your applications's Details
 # page located at https://dev.twitter.com/apps (located 
 # under "Your access token")
-access_token="*****"
-access_token_secret="*****"
+access_token="3386217437-nVoNuNbW4zFPciAOziBEQYfk8JTT85rpiCzWe1L"
+access_token_secret="ExjuBZ7xzGImmdKDO1Uxn6tDgEu5b2NLDByWFXCxLc1HM"
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
@@ -41,11 +41,8 @@ me = api.me().screen_name
 #Insert @%s when you want to insert a specific username
 
 TEMPLATES = [
-	'message 1',
-	'message 2',
-  	'message 3',
- 	'message 4',
-  	'message 5'
+	'@justinbieber Hi, I'm a huge fan of you and your music! Please follow me :)',
+	'@shawnmendes Hi, I'm a huge fan of you and your music! Please follow me :)'
 ]
 
 class StdOutListener(StreamListener):
@@ -71,7 +68,7 @@ class StdOutListener(StreamListener):
             api.update_status(TEMPLATES[random.randint(0,4)] %(name), data_string["id"])
             return True
         # This is for following new people
-        elif choice == 2:
+        elif choice == 0:
             # Try to follow them, if it failes we are already following
             im_following = api.friends_ids(me)
             if str(user_id) in im_following:
